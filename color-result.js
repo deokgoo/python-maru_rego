@@ -39,10 +39,12 @@ function render(colors) {
   let htmlString = '<div class="controller" style="display:flex;flex-direction:column;">';
 
   colors.map((row, y) => {
-    htmlString += '<div class="row" style="display:flex;width: 100%;">'
+    const isBorder = y % 10 === 0;
+    htmlString += `<div class="row" style="display:flex;width: 100%;${isBorder?'border-top: 2px solid white':''}">`
     htmlString += row.map((cell, x) => {
+      const isBorder = x % 10 === 0;
       const fontColor = colorStrArr[cell].replaceAll('rgb(', "").replaceAll(')', "").split(',').map(x => parseInt(x)).reduce((acc, cur) => acc + cur) < 375 ? 'white' : 'black';
-      return `<div class="col" style="width: 24px; height: 24px; border:1px solid gray; text-align:center; background-color:${colorStrArr[cell]}; color:${fontColor}">
+      return `<div class="col" style="width: 24px; height: 24px; text-align:center; background-color:${colorStrArr[cell]}; color:${fontColor}; ${isBorder?'border-left: 2px solid white':''}">
         ${cell}
       </div>`;
     }).join('');
