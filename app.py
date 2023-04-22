@@ -5,11 +5,11 @@ from pickColor import pickColor  # 외부 컬러
 import json
 
 # 이미지 파일명
-IMAGE_FILE = 'img/maru_end1.jpg'
+IMAGE_FILE = 'img/3617.jpeg'
 # 변환된 이미지 파일명
 OUTPUT_FILE = 'maru_16.jpg'
 # 이미지 크기 조정값
-IMAGE_SIZE = (100, 100)
+IMAGE_SIZE = (70, 70)
 
 # 이미지 열기
 img = Image.open(IMAGE_FILE)
