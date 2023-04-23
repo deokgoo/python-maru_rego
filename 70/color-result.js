@@ -71,7 +71,7 @@ function render(colors) {
     console.log(colorStrArr[x].replaceAll('rgb(', "").replaceAll(')', "").split(',').map(x => parseInt(x)).reduce((acc, cur) => acc + cur));
     htmlString += `<div style="display:flex;align-items:center;font-size: 24px">
       <div style="min-width: 24px; min-height: 24px; border:1px solid gray; text-align:center; background-color:${colorStrArr[x]}; padding: 4px; color:${fontColor}">
-        ${x + 1}
+        ${Number(x) + 1}
       </div>
       <div style="margin-left: 4px; font-size: 56px;">${counts[x]}</div>
     </div>`
@@ -86,7 +86,7 @@ function render(colors) {
 }
 
 (async () => {
-  const response = await fetch('./color-map-50.json');
+  const response = await fetch('./color-map.json');
   const colors = await response.json();
   render(colors);
 })();
